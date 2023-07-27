@@ -4,5 +4,19 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"rust-analyzer.linkedProjects": [
+			".\\Cargo.toml"
+		]
+	},
+	"extensions": {
+		"recommendations": [
+			"vadimcn.vscode-lldb",
+			"rust-lang.rust-analyzer",
+			"swellaby.vscode-rust-test-adapter",
+			"streetsidesoftware.code-spell-checker",
+			"serayuzgur.crates",
+			"tamasfe.even-better-toml"
+		]
+	}
 }
