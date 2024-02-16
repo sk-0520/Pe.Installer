@@ -48,6 +48,9 @@ namespace Pe.Installer
 
         private void InstallerForm_Load(object sender, EventArgs e)
         {
+            // アップデートURI設定
+            this.inputUpdateUri.Text = Constants.UpdateFileUri.OriginalString;
+
             // ディレクトリ設定
             this.inputDirectoryPath.Text = Constants.InstallDirectoryPath;
 
@@ -60,6 +63,7 @@ namespace Pe.Installer
 
             // リソース増えるとしんどいので手で頑張る
             Text = Properties.Resources.String_Caption;
+            this.labelUpdateUri.Text = Properties.Resources.String_Label_UpdateUri_A;
             this.labelDirectoryPath.Text = Properties.Resources.String_Label_DirectoryPath_A;
             this.labelPlatform.Text = Properties.Resources.String_Label_Platform_A;
             this.labelTotalProgress.Text = Properties.Resources.String_Label_TotalProgress_A;
@@ -111,6 +115,7 @@ namespace Pe.Installer
 
                 this.commandExecute.Enabled = false;
                 this.commandDirectoryPath.Enabled = false;
+                this.inputUpdateUri.ReadOnly = true;
                 this.inputDirectoryPath.ReadOnly = true;
                 this.listPlatform.Enabled = false;
 
@@ -129,7 +134,7 @@ namespace Pe.Installer
 
                     var downloader = new Downloader(progress.Current, LoggerFactory);
 
-                    var updateItemData = await downloader.GetUpdateItemDataAsync(Constants.UpdateFileUri, selectedItem.Value, CancellationTokenSource.Token);
+                    var updateItemData = await downloader.GetUpdateItemDataAsync(new Uri(this.inputUpdateUri.Text), selectedItem.Value, CancellationTokenSource.Token);
                     progress.Total.Stepup();
 
                     var stream = await downloader.GetArchiveAsync(updateItemData.ArchiveUri, CancellationTokenSource.Token);
@@ -157,6 +162,7 @@ namespace Pe.Installer
                 } finally {
                     this.commandExecute.Enabled = true;
                     this.commandDirectoryPath.Enabled = !Installed;
+                    this.inputUpdateUri.ReadOnly = Installed;
                     this.inputDirectoryPath.ReadOnly = Installed;
                     this.listPlatform.Enabled = !Installed;
 

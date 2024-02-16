@@ -188,6 +188,9 @@
   <data name="String_Label_TotalProgress_A" xml:space="preserve">
     <value>全体進捗</value>
   </data>
+  <data name="String_Label_UpdateUri_A" xml:space="preserve">
+    <value>URI</value>
+  </data>
   <data name="String_LogKind_Debug" xml:space="preserve">
     <value>検証</value>
   </data>

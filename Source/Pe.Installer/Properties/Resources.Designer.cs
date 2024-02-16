@@ -270,6 +270,15 @@ namespace Pe.Installer.Properties {
         }
         
         /// <summary>
+        ///   URI に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string String_Label_UpdateUri_A {
+            get {
+                return ResourceManager.GetString("String_Label_UpdateUri_A", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   検証 に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string String_LogKind_Debug {

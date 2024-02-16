@@ -43,8 +43,8 @@ namespace Pe.Installer
             this.commandClose = new System.Windows.Forms.Button();
             this.inputDirectoryPath = new System.Windows.Forms.TextBox();
             this.linkProject = new System.Windows.Forms.LinkLabel();
-            this.inputTargetUri = new System.Windows.Forms.TextBox();
-            this.labelTargetUri = new System.Windows.Forms.Label();
+            this.inputUpdateUri = new System.Windows.Forms.TextBox();
+            this.labelUpdateUri = new System.Windows.Forms.Label();
             this.gridMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,8 +67,8 @@ namespace Pe.Installer
             this.gridMain.Controls.Add(this.commandClose, 2, 6);
             this.gridMain.Controls.Add(this.inputDirectoryPath, 1, 1);
             this.gridMain.Controls.Add(this.linkProject, 0, 6);
-            this.gridMain.Controls.Add(this.inputTargetUri, 1, 0);
-            this.gridMain.Controls.Add(this.labelTargetUri, 0, 0);
+            this.gridMain.Controls.Add(this.inputUpdateUri, 1, 0);
+            this.gridMain.Controls.Add(this.labelUpdateUri, 0, 0);
             this.gridMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridMain.Location = new System.Drawing.Point(6, 6);
             this.gridMain.Name = "gridMain";
@@ -229,24 +229,24 @@ namespace Pe.Installer
             // 
             // inputTargetUri
             // 
-            this.inputTargetUri.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.inputTargetUri.Location = new System.Drawing.Point(94, 3);
-            this.inputTargetUri.Name = "inputTargetUri";
-            this.inputTargetUri.Size = new System.Drawing.Size(268, 19);
-            this.inputTargetUri.TabIndex = 12;
+            this.inputUpdateUri.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.inputUpdateUri.Location = new System.Drawing.Point(94, 3);
+            this.inputUpdateUri.Name = "inputTargetUri";
+            this.inputUpdateUri.Size = new System.Drawing.Size(268, 19);
+            this.inputUpdateUri.TabIndex = 12;
             // 
             // labelTargetUri
             // 
-            this.labelTargetUri.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.labelUpdateUri.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelTargetUri.AutoSize = true;
-            this.labelTargetUri.Location = new System.Drawing.Point(3, 0);
-            this.labelTargetUri.Name = "labelTargetUri";
-            this.labelTargetUri.Size = new System.Drawing.Size(85, 25);
-            this.labelTargetUri.TabIndex = 0;
-            this.labelTargetUri.Text = "*URI*";
-            this.labelTargetUri.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelUpdateUri.AutoSize = true;
+            this.labelUpdateUri.Location = new System.Drawing.Point(3, 0);
+            this.labelUpdateUri.Name = "labelTargetUri";
+            this.labelUpdateUri.Size = new System.Drawing.Size(85, 25);
+            this.labelUpdateUri.TabIndex = 0;
+            this.labelUpdateUri.Text = "*URI*";
+            this.labelUpdateUri.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // InstallerForm
             // 
@@ -286,8 +286,8 @@ namespace Pe.Installer
         private System.Windows.Forms.Button commandExecute;
         private System.Windows.Forms.Button commandClose;
         private System.Windows.Forms.LinkLabel linkProject;
-        private System.Windows.Forms.TextBox inputTargetUri;
-        private System.Windows.Forms.Label labelTargetUri;
+        private System.Windows.Forms.TextBox inputUpdateUri;
+        private System.Windows.Forms.Label labelUpdateUri;
     }
 }
 
