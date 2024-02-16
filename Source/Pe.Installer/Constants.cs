@@ -19,7 +19,7 @@ namespace Pe.Installer
 #if DEBUG
              new Uri("http://localhost/api/application/version/update")
 #else
-             new Uri("https://peserver.gq/api/application/version/update")
+             new Uri("https://peserver.site/api/application/version/update")
 #endif
         ;
 
