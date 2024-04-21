@@ -1,4 +1,4 @@
-name: Release Build
+name: Build
 
 on: push
 
@@ -6,12 +6,17 @@ env:
   SOLUTION_PATH: Source\Pe.Installer.sln
   OUTPUT_PATH: Source/Pe.Installer/bin/x86/Release/Pe.Installer.exe
   NUGET_PACKAGES: ${{ github.workspace }}/.nuget/packages
+  TEST_BASE_DIR: Source/Pe.Installer.Test\bin
+  TEST_BIN_NAME: Pe.Installer.Test.dll
+  VS_TEST_CONSOLE_PATH: C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TestWindow
+  NUGET_TOOL_OpenCover: Source/Pe.Installer\packages\OpenCover.4.7.1221\tools\OpenCover.Console.exe
+  NUGET_TOOL_ReportGenerator: Source/Pe.Installer\packages\ReportGenerator.5.2.4\tools\net47\ReportGenerator.exe
 
 jobs:
 
   build:
 
-    runs-on: windows-2022
+    runs-on: windows-latest
 
     steps:
       - name: <Checkout> Repository
@@ -37,13 +42,45 @@ jobs:
           name: Pe.Installer
           path: ${{ env.OUTPUT_PATH }}
 
+  test:
+    runs-on: windows-latest
+
+    steps:
+      - name: <Checkout> Repository
+        uses: actions/checkout@v4
+
+      - name: <Add> msbuild to PATH
+        uses: microsoft/setup-msbuild@v2
+
+      - name: <Restore> Application
+        shell: cmd
+        run: |
+          nuget restore ${{ env.SOLUTION_PATH }}
+
+      - name: <Build> Application
+        shell: pwsh
+        run: |
+          msbuild ${{ env.SOLUTION_PATH }} /t:Build /p:Configuration=Release
+          if(-not $?) {
+            throw 'error: build'
+          }
+          tree /f
+
+      - name: <Test> Application
+        shell: cmd
+        run: |
+          set PATH=%PATH%;${{env.VS_TEST_CONSOLE_PATH}}
+          VSTest.Console "${{ env.TEST_BASE_DIR }}\Release\${{ env.TEST_BIN_NAME }}" /InIsolation
+
   deploy:
 
-    needs: build
+    needs:
+      - build
+      - test
 
     if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/ci-test'
 
-    runs-on: windows-2022
+    runs-on: windows-latest
 
     steps:
       - name: <Download> Application
