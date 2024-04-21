@@ -10,7 +10,7 @@ namespace Pe.Installer.Test
     public class ListItemTest_String
     {
         [Theory]
-        [InlineData("display", "value")]
+        [InlineData("display", "value*")]
         public void ConstructorTest(string display, string value) {
             var test = new ListItem<string>(display, value);
             Assert.Equal(display, test.Display);
