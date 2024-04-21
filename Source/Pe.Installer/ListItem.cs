@@ -21,6 +21,12 @@ namespace Pe.Installer
         public T Value { get; }
 
         #endregion
+
+        #region object
+
+        public override string ToString() => Display;
+
+        #endregion
     }
 
     public class PlatformListItem: ListItem<string>
