@@ -20,6 +20,7 @@ Global
 		{ADD2211A-AE5C-4688-AD2C-230E8018A7C6}.Debug|x86.ActiveCfg = Debug|x86
 		{ADD2211A-AE5C-4688-AD2C-230E8018A7C6}.Debug|x86.Build.0 = Debug|x86
 		{ADD2211A-AE5C-4688-AD2C-230E8018A7C6}.Release|x86.ActiveCfg = Release|x86
+		{ADD2211A-AE5C-4688-AD2C-230E8018A7C6}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
