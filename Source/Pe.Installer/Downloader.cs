@@ -98,7 +98,7 @@ namespace Pe.Installer
                         ProgressLogger.Set(percent);
                     }
                     if(0 < readSize) {
-                        result.Write(buffer, 0, readSize);
+                        await result.WriteAsync(buffer, 0, readSize);
                     }
                 } while(readSize != 0);
             }
