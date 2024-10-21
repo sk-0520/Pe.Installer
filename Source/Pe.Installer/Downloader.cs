@@ -68,7 +68,7 @@ namespace Pe.Installer
 
             var result = knownSize
                 ? new MemoryStream(length)
-                : new MemoryStream(100 * 1024 * 1024)
+                : new MemoryStream(60 * 1024 * 1024)
             ;
             var prevPercent = 0;
 
