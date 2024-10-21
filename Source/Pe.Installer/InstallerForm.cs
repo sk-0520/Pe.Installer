@@ -35,10 +35,7 @@ namespace Pe.Installer
 
         bool Installed { get; set; }
 
-        Task CurrentTask { get; set; }
         CancellationTokenSource CancellationTokenSource { get; set; }
-
-        string ExecutePath { get; set; }
 
         #endregion
 
