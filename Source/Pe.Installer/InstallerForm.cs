@@ -177,7 +177,9 @@ namespace Pe.Installer
                     CancellationTokenSource = null;
                     try {
                         cancel.Dispose();
-                    } catch { }
+                    } catch(Exception ex) {
+                        Logger.LogError(ex.ToString());
+                    }
                 }
             }
         }
