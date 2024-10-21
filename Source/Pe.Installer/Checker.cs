@@ -18,8 +18,8 @@ namespace Pe.Installer
 
         #region property
 
-        IProgressLogger ProgressLogger { get; }
-        ILogger Logger { get; }
+        private IProgressLogger ProgressLogger { get; }
+        private ILogger Logger { get; }
 
         #endregion
 

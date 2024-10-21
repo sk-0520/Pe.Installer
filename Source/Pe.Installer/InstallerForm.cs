@@ -30,12 +30,12 @@ namespace Pe.Installer
 
         #region property
 
-        ILoggerFactory LoggerFactory { get; }
-        ILogger Logger { get; }
+        private ILoggerFactory LoggerFactory { get; }
+        private ILogger Logger { get; }
 
-        bool Installed { get; set; }
+        private bool Installed { get; set; }
 
-        CancellationTokenSource CancellationTokenSource { get; set; }
+        private CancellationTokenSource CancellationTokenSource { get; set; }
 
         #endregion
 

@@ -29,7 +29,7 @@ namespace Pe.Installer
 
         #region property
 
-        ProgressBar ProgressBar { get; }
+        private ProgressBar ProgressBar { get; }
 
         #endregion
 

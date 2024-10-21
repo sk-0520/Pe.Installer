@@ -20,9 +20,9 @@ namespace Pe.Installer
 
         #region property
 
-        IProgressLogger ProgressLogger { get; }
-        ILogger Logger { get; }
-        HttpClient HttpClient { get; } = new HttpClient();
+        private IProgressLogger ProgressLogger { get; }
+        private ILogger Logger { get; }
+        private HttpClient HttpClient { get; } = new HttpClient();
 
         #endregion
 
