@@ -84,7 +84,8 @@ namespace Pe.Installer
                 int readSize = 0;
 
                 do {
-                    totalReadSize += readSize = await stream.ReadAsync(buffer, 0, buffer.Length, cancellationToken);
+                    readSize = await stream.ReadAsync(buffer, 0, buffer.Length, cancellationToken);
+                    totalReadSize += readSize;
                     if(knownSize) {
                         var percent = (int)((totalReadSize / (double)length) * 100.0);
                         if(prevPercent != percent) {
