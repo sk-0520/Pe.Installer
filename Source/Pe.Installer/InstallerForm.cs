@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -129,7 +130,7 @@ namespace Pe.Installer
                 try {
                     var selectedItem = (PlatformListItem)this.listPlatform.SelectedItem;
 
-                    var downloader = new Downloader(progress.Current, LoggerFactory);
+                    var downloader = new Downloader(new HttpClient(), progress.Current, LoggerFactory);
 
                     var updateItemData = await downloader.GetUpdateItemDataAsync(new Uri(this.inputUpdateUri.Text), selectedItem.Value, CancellationTokenSource.Token);
                     progress.Total.Stepup();

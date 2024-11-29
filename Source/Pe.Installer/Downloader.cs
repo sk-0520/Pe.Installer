@@ -12,8 +12,9 @@ namespace Pe.Installer
 {
     public class Downloader
     {
-        public Downloader(IProgressLogger progressLogger, ILoggerFactory loggerFactory)
+        public Downloader(HttpClient httpClient, IProgressLogger progressLogger, ILoggerFactory loggerFactory)
         {
+            HttpClient = httpClient;
             ProgressLogger = progressLogger;
             Logger = loggerFactory.CreateLogger(GetType());
         }
@@ -22,7 +23,7 @@ namespace Pe.Installer
 
         private IProgressLogger ProgressLogger { get; }
         private ILogger Logger { get; }
-        private HttpClient HttpClient { get; } = new HttpClient();
+        private HttpClient HttpClient { get; }
 
         #endregion
 
