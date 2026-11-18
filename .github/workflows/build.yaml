@@ -8,7 +8,7 @@ env:
   NUGET_PACKAGES: ${{ github.workspace }}/.nuget/packages
   TEST_BASE_DIR: Source/Pe.Installer.Test\bin\x86
   TEST_BIN_NAME: Pe.Installer.Test.dll
-  VS_TEST_CONSOLE_PATH: C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TestWindow
+  VS_TEST_CONSOLE_PATH: C:\Program Files\Microsoft Visual Studio\18\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TestWindow
   NUGET_TOOL_OpenCover: Source/Pe.Installer\packages\OpenCover.4.7.1221\tools\OpenCover.Console.exe
   NUGET_TOOL_ReportGenerator: Source/Pe.Installer\packages\ReportGenerator.5.2.4\tools\net47\ReportGenerator.exe
 
@@ -20,10 +20,10 @@ jobs:
 
     steps:
       - name: <Checkout> Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: <Add> msbuild to PATH
-        uses: microsoft/setup-msbuild@v2
+        uses: microsoft/setup-msbuild@v3
 
       - name: <Restore> Application
         shell: cmd
@@ -37,7 +37,7 @@ jobs:
           tree
 
       - name: <Artifact> Application
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: Pe.Installer
           path: ${{ env.OUTPUT_PATH }}
@@ -47,10 +47,10 @@ jobs:
 
     steps:
       - name: <Checkout> Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: <Add> msbuild to PATH
-        uses: microsoft/setup-msbuild@v2
+        uses: microsoft/setup-msbuild@v3
 
       - name: <Restore> Application
         shell: cmd
@@ -84,7 +84,7 @@ jobs:
 
     steps:
       - name: <Download> Application
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v7
         with:
           name: Pe.Installer
           path: Pe.Installer
@@ -108,7 +108,7 @@ jobs:
 
       - name: <Create> Release
         id: create-release
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             const releaseResult = await github.rest.repos.createRelease({
