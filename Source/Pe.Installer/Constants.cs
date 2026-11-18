@@ -1,10 +1,6 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Pe.Installer
 {
@@ -19,7 +15,7 @@ namespace Pe.Installer
 #if DEBUG
              new Uri("http://localhost/api/application/version/update")
 #else
-             new Uri("https://pe.content-type-text.org/api/application/version/update")
+             new Uri("https://pe.content-type-text.net/api/application/version/update")
 #endif
         ;
 
